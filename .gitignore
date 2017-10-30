@@ -1,4 +1,6 @@
-node_modules
-*.lock
 *.log
-attendant-darwin-x64
+.idea
+node_modules
+package-lock.json
+mix-manifest.json
+Attendant-linux-x64/

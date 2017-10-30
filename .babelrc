@@ -1,0 +1,26 @@
+{
+  "plugins": [
+    "transform-runtime",
+    "dynamic-import-webpack"
+  ],
+  "presets": [
+    [
+      "env",
+      {
+        "modules": false,
+        "target": "electron-renderer"
+      }
+    ]
+  ],
+  "env": {
+    "test": {
+      "presets": [
+        "env",
+        "stage-2"
+      ],
+      "plugins": [
+        "istanbul"
+      ]
+    }
+  }
+}

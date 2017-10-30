@@ -10,8 +10,6 @@
 
 <script>
 	export default {
-		data: () => ({}),
-		props: [],
 		methods: {
 			minimizeWindow(){
 				currentWindow.minimize();
@@ -25,9 +23,7 @@
 			},
 			closeWindow(){
 				currentWindow.close()
-			},
-		},
-		mounted(){
+			}
 		}
 	}
 </script>
@@ -42,6 +38,7 @@
 		width: 100%;
 		background: #fff;
 		border-bottom: 1px solid #E9E9E9;
+
 		.title-bar-buttons{
 			display: flex;
 			padding-left: 10px;

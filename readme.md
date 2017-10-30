@@ -1,42 +1,19 @@
-<p align="center">
-  <img src="icons/title.png">
-</p>
+# Laravel Attendant for Linux
 
-## A Laravel Valet GUI
+This project is originally forked from [Attendant - Laravel Valet GUI](https://github.com/phppirate/attendant), targeting Linux platforms.
 
-<p align="center">
-  <img src="shot.png">
-</p>
+### Installation
 
-## Requirements
+```bash
+# Install dependencies
+$ npm i
 
-You need to have valet entirely install already.
+# Build resources
+$ npm run production
 
-## Currently Supports
-
-- Listing Sites
-- Showing Valet Running status
-- Restarting Valet
-- Stoping Valet
-- Starting Valet
-- Link and Unlink Directories
-- Park and Forget Directories
-- Opening sites in browser
-- Revealing sites in finder
-- Opening sites in Sublime Text using the `subl` utility
-
-## Installation
-
-Download the most recent version from the ["Releases"](https://github.com/phppirate/attendant/releases) page and add it to your Applications folder.
-
-Then run this is your terminal
+# Package the app
+$ npm run pack
 ```
-ln -s /Applications/Attendant.app/Contents/Resources/app/attendant /usr/local/bin
-```
-Also make sure `/usr/local/bin` is in your $PATH env variable.
 
-## Caveat
+This will produce an ```Attendant``` executable in ./Attendant-\<platform arch\>.
 
-Now here is the only issue. When you want to open Attendant you need to open your terminal and type `attendant`.
-
-That is it!

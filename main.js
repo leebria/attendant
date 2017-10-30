@@ -1,51 +1,48 @@
-let electron = require('electron');
-let {shell, Menu} = electron;
-let exec = require('child_process').exec;
-let app = electron.app;
-let BrowserWindow = electron.BrowserWindow;
-let mainWindow;
+import 'babel-polyfill'
+import { app, shell, Menu, BrowserWindow } from 'electron'
+import { exec } from 'child_process'
 
-function init(){
-	createMainWindow();
+const mainWindow
+
+function init () {
+  createMainWindow()
 }
 
-function createMainWindow(){
-	mainWindow = new BrowserWindow({
-		width: 700,
-		height: 580,
-		frame: false,
-		// titleBarStyle: 'hidden'
-	});
-	mainWindow.loadURL('file://' + __dirname + "/app/index.html");
+function createMainWindow () {
+  mainWindow = new BrowserWindow({
+    width: 700,
+    height: 580,
+    frame: false
+  })
+  mainWindow.loadURL('file://' + __dirname + '/app/index.html')
 
-	let template  = [
-		{
-			label: "Attendant",
-			submenu: [
-				{
-					role: 'about'
-				},
-				{
-					label: 'Toggle Developer Tools',
-					accelerator: process.platform === 'darwin' ? 'Alt+Command+I' : 'Ctrl+Shift+I',
-					click (item, focusedWindow) {
-						if (focusedWindow) focusedWindow.webContents.toggleDevTools()
-					}
-				},
-				{
-					role: 'reload'
-				},
-				{
-					role: 'quit'
-				}
-			]
-		}
-	];
+  const template = [
+    {
+      label: 'Attendant',
+      submenu: [
+        {
+          role: 'about'
+        },
+        {
+          label: 'Toggle Developer Tools',
+          accelerator: process.platform === 'darwin' ? 'Alt+Command+I' : 'Ctrl+Shift+I',
+          click (item, focusedWindow) {
+            if (focusedWindow) focusedWindow.webContents.toggleDevTools()
+          }
+        },
+        {
+          role: 'reload'
+        },
+        {
+          role: 'quit'
+        }
+      ]
+    }
+  ]
 
-	let menu = Menu.buildFromTemplate(template);
-  	Menu.setApplicationMenu(menu);
-
+  Menu.setApplicationMenu(
+    Menu.buildFromTemplate(template)
+  )
 }
 
-
-app.on('ready', init);
+app.on('ready', init)

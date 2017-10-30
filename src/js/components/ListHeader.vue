@@ -1,22 +1,18 @@
 <template>
-	<div class="list-header"><slot></slot></div>
+    <div class="list-header">
+        <slot></slot>
+    </div>
 </template>
 
 <script>
-	export default {
-		data(){
-			return {};
-		},
-		props: [],
-		methods: {}
-	}
+  export default {}
 </script>
 
-<style>
-	.list-header{
-		display: flex;
-		align-items: center;
-		padding: 0px 20px;
-		height: 45px;
-	}
+<style type="text/css">
+    .list-header {
+        display: flex;
+        align-items: center;
+        padding: 0 20px;
+        height: 45px;
+    }
 </style>
