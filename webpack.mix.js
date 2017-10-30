@@ -1,5 +1,11 @@
 const mix = require('laravel-mix')
 
+mix.setPublicPath('./')
+
+if (mix.inProduction()) {
+  mix.version()
+}
+
 mix
   .webpackConfig({
     target: 'electron-renderer',
@@ -10,10 +16,12 @@ mix
       fs: 'empty'
     }
   })
-  .js('src/js/app.js', '/app/js/app.js')
+  // .js('src/main.js', 'build/main.js')
+  .js('src/base.js', 'build/base.js')
+  .js('src/app.js', 'build/app.js')
   .extract([
     'parse-git-config'
-  ], '/app/js/vendor.js')
+  ], 'build/vendor.js')
 
 // Full API
 // mix.js(src, output);

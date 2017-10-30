@@ -2,30 +2,67 @@
   "name": "Attendant",
   "version": "0.0.2",
   "description": "Laravel Valet GUI",
-  "main": "main.js",
+  "main": "src/main.js",
   "repository": {},
   "author": "Sam Podlogar",
   "license": "MIT",
   "devDependencies": {
-    "babel-plugin-dynamic-import-webpack": "^1.0.1",
-    "babel-plugin-istanbul": "^4.1.5",
-    "babel-plugin-transform-runtime": "^6.23.0",
-    "babel-preset-env": "^1.6.1",
-    "babel-preset-stage-2": "^6.24.1",
     "cross-env": "^5.1.1",
-    "electron": "^1.8.1",
+    "babel-core": "^6.3.21",
+    "babel-eslint": "^7.0.0",
+    "babel-plugin-array-includes": "^2.0.3",
+    "babel-plugin-react-transform": "^2.0.2",
+    "babel-plugin-transform-inline-environment-variables": "^6.3.13",
+    "babel-preset-es2015": "^6.3.13",
+    "babel-preset-react": "^6.3.13",
+    "babel-preset-stage-0": "^6.3.13",
+    "electron-forge": "^4.1.2",
+    "electron-builder": "^7.11.3",
+    "electron-prebuilt-compile": "1.7.9",
     "laravel-mix": "^1.5.1",
     "vue": "^2.5.2"
   },
   "scripts": {
-    "pack": "electron-packager . --icon=icons/icon --overwrite",
-    "dev": "cross-env NODE_ENV=development webpack --progress --hide-modules --config=node_modules/laravel-mix/setup/webpack.config.js",
-    "watch": "cross-env NODE_ENV=development webpack --watch --progress --hide-modules --config=node_modules/laravel-mix/setup/webpack.config.js",
-    "hot": "cross-env NODE_ENV=development webpack-dev-server --inline --hot --config=node_modules/laravel-mix/setup/webpack.config.js",
-    "production": "cross-env NODE_ENV=production webpack --progress --hide-modules --config=node_modules/laravel-mix/setup/webpack.config.js"
+    "start": "electron-forge start",
+    "package": "electron-forge package",
+    "make": "electron-forge make"
   },
   "dependencies": {
-    "babel-polyfill": "^6.26.0",
+    "electron-compile": "^6.4.2",
     "parse-git-config": "^1.1.1"
+  },
+  "config": {
+    "forge": {
+      "make_targets": {
+        "win32": [
+          "squirrel"
+        ],
+        "darwin": [
+          "zip"
+        ],
+        "linux": [
+          "deb",
+          "rpm"
+        ]
+      },
+      "electronPackagerConfig": {
+        "packageManager": "yarn",
+        "ignore": [
+          ".idea/"
+        ]
+      },
+      "electronWinstallerConfig": {
+        "name": ""
+      },
+      "electronInstallerDebian": {},
+      "electronInstallerRedhat": {},
+      "github_repository": {
+        "owner": "",
+        "name": ""
+      },
+      "windowsStoreConfig": {
+        "packageName": ""
+      }
+    }
   }
 }

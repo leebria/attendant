@@ -1,4 +1,3 @@
-import 'babel-polyfill'
 import { app, shell, Menu, BrowserWindow } from 'electron'
 import { exec } from 'child_process'
 
@@ -14,7 +13,7 @@ function createMainWindow () {
     height: 580,
     frame: false
   })
-  mainWindow.loadURL('file://' + __dirname + '/app/index.html')
+  mainWindow.loadURL('file://' + __dirname + '/build/index.html')
 
   const template = [
     {

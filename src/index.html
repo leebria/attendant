@@ -3,25 +3,21 @@
     <head>
         <meta charset="UTF-8">
         <title>Attendant</title>
-        <link rel="stylesheet" href="css/app.css">
+        <link rel="stylesheet" href="app.css">
     </head>
     <body>
         <div id="app" v-if="config">
             <title-bar></title-bar>
-            <status-bar
-                    :version="config.version"
-                    :site-list="siteList"
-            ></status-bar>
+            <status-bar :version="config.version" :site-list="siteList"></status-bar>
             <div class="splitter">
                 <div class="section1">
                     <list-header>
                         Valet Sites
                     </list-header>
-                    <site-list
-                            :site-list="siteList"
-                            :active-site="activeSite"
-                            @activate="activateSite"
-                    ></site-list>
+                    <site-list :site-list="siteList"
+                               :active-site="activeSite"
+                               @activate="activateSite">
+                    </site-list>
                 </div>
                 <div class="section2">
                     <site-details v-if="activeSite" :active-site="activeSite"></site-details>
@@ -57,10 +53,8 @@
           parkDir.ondrop = (e) => {
             e.preventDefault()
             for (let f of e.dataTransfer.files) {
-              console.log('Parking: ', f.path)
               valet_park(f.path)
                 .then(r => {
-                  console.log(r)
                   body.classList.remove('activeate-filedropper')
                   reloadBase()
                 })
@@ -71,10 +65,8 @@
           linkDir.ondrop = (e) => {
             e.preventDefault()
             for (let f of e.dataTransfer.files) {
-              console.log('Linking: ', f.path)
               valet_link(f.path)
                 .then(r => {
-                  console.log(r)
                   body.classList.remove('activeate-filedropper')
                   reloadBase()
                 })
@@ -83,9 +75,9 @@
           }
         </script>
 
-        <script src="js/base.js"></script>
-        <script src="{{ mix('js/manifest.js') }}"></script>
-        <script src="{{ mix('js/vendor.js') }}"></script>
-        <script src="{{ mix('js/app.js') }}"></script>
+        <script src="{{ mix('manifest.js') }}"></script>
+        <script src="{{ mix('base.js') }}"></script>
+        <script src="{{ mix('vendor.js') }}"></script>
+        <script src="{{ mix('app.js') }}"></script>
     </body>
 </html>

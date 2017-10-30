@@ -121,9 +121,9 @@
   }
 </script>
 
-<style>
+<style type="text/css">
     .content {
-        padding: 0px 20px;
+        padding: 0 20px;
         color: #666;
     }
 

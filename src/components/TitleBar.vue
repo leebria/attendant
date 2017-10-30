@@ -53,7 +53,9 @@
 			background: #E9E9E9;
 			-webkit-app-region: no-drag;
 
-			&.red{ background: #D0011B; }
+			&.red {
+				 background: #D0011B;
+			 }
 			&.green{ background: #7ED321; }
 			&.yellow{ background: #F8E81C; }
 			&:hover{
